@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Categoria
+from .models import *
 
 class NameForm(forms.Form):
     nombre = forms.CharField(label= "Ingrese su Nombre",help_text="Informacion requerida *",widget=forms.TextInput(attrs={
@@ -41,5 +41,13 @@ class CategoriaForm(forms.ModelForm):
 
     class Meta:
         model = Categoria
+
+        exclude=('estado',)
+
+
+class ProductoForm(forms.ModelForm):
+
+    class Meta:
+        model = Producto
 
         exclude=('estado',)

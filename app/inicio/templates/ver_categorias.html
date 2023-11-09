@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %} login {% endblock %}
+
+{% block contenido %}
+    <strong>lista de categorias</strong>
+
+    <table BORDER="1">
+        <TR>
+        
+            <TH>ID</TH>
+            <TH>NOMBRE</TH>
+            <TH>ESTADO</TH>
+            <th>FECHA DE REGISTRO</th>
+            <th>Fecha de Modificación</th>
+            <TH>ACCIONES</TH>
+        </TR>
+        {% for categoria in categorias%}
+            <TR>
+                <TD>{{categoria.id}}</TD>
+                <TD>{{categoria.nombre_categoria}}</TD>
+                <TD>{{categoria.estado}}</TD>
+                <TD>{{categoria.fecha_creacion}}</TD>
+                <TD>{{categoria.fecha_mod}}</TD>
+            </TR>
+        {% empty %}
+            <tr>
+                <td>No hay registros</td>
+            </tr>
+
+        {% endfor %}
+    </table>
+
+{% endblock %}
