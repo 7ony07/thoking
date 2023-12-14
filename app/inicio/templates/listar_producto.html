@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %} Productos {% endblock %}
+
+{% block contenido %}
+<strong>lista de productos</strong>
+
+    <table class="table table-striped">
+        <TR>
+        
+            <TH>ID</TH>
+            <TH>NOMBRE</TH>
+            <TH>PRECIO</TH>
+            <TH>STOCK</TH>
+            <TH>CATEGORIA</TH>
+            <th>Imagen</th>
+            <th>FECHA DE REGISTRO</th>
+            <th>Fecha de Modificación</th>
+            <TH>ACCIONES</TH>
+        </TR>
+        {{productos}}
+        {% for p in productos%}
+            <TR>
+                <td>{{p.id}}</td>
+                <td>{{p.nombre}}</td>
+                <td>{{p.precio}}</td>
+                <td>{{p.stock}}</td>
+                <td>{{p.categoria}}</td>
+                <td><img src="/media/{{p.imagen}}" alt="" class="rounded img-fluid"></td>
+                <td>{{p.fecha_creacion}}</td>
+                <td>{{p.fecha_mod}}</td>
+                <td>
+                    <button class="btn btn-danger" title="Eliminar Producto"><i class="fa-solid fa-trash"></i></button>
+                    <button class="btn btn-secondary" title="Editar Producto"><i class="fa-solid fa-pencil"></i></button>
+                </td>
+            </TR>
+        {% empty %}
+            <tr>
+                <td>No hay registros</td>
+            </tr>
+
+        {% endfor %}
+    </table>
+
+    {% endblock %}

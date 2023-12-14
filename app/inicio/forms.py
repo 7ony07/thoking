@@ -46,8 +46,32 @@ class CategoriaForm(forms.ModelForm):
 
 
 class ProductoForm(forms.ModelForm):
+    nombre = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                'class':'form-control','placeholder':'Nombre del producto'
+            }
+        )
+    )
 
+    precio = forms.FloatField(
+        widget=forms.NumberInput(
+            attrs={
+                'class':'form-control','placeholder':'Precio'
+            }
+        )
+    )
+    stock = forms.IntegerField(
+        widget=forms.TextInput(
+            attrs={
+                'class':'form-control','placeholder':'Stock'
+            }
+        )
+    )
+
+    
     class Meta:
         model = Producto
 
         exclude=('estado',)
+    

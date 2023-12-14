@@ -3,16 +3,18 @@
 {% block title %} PRODUCTOS {% endblock %}
 
 {% block contenido %}
-    <strong>Crear Productos</strong>
+    <div class="formulario">
+        <strong>Crear Productos</strong>
 
 
-    <form action="/crear_producto/" method="post" enctype="multipart/form-data">
-        {% csrf_token %}    <!--variable de seguridad-->
-        {{formulario.as_p}}
-        <br>
-        <button>Registrar</button>
-        <button type="reset">Cancelar</button>
-    </form>
+        <form action="/crear_producto/" method="post" enctype="multipart/form-data" class="form-inline" role="form" >
+            {% csrf_token %}    <!--variable de seguridad-->
+        <div class="mb-3">{{formulario.as_p}} </div>   
 
+        <button type="submit" class="btn btn-outline-success">Registrar</button>
+        <button type="reset" class="btn btn-outline-danger">Cancelar</button>
+
+        </form>
+    </div> 
 
 {% endblock %}

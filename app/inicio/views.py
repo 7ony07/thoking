@@ -50,7 +50,21 @@ def crear_producto(request):
         formulario = ProductoForm(request.POST, request.FILES)
         if formulario.is_valid():
             formulario.save()
+            
             return redirect("/crear_producto/")
     else:
         formulario = ProductoForm()
     return render(request, 'crear_producto.html',{'formulario':formulario})
+
+
+
+def listar_producto(request):
+    productos = Producto.objects.all()
+    datos = {
+        'productos':productos
+    }
+    return render(request,'listar_producto.html', datos)
+
+
+def mi_vista(request):
+    return render(request, 'inicio.html')
